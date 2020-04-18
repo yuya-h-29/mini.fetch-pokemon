@@ -20,7 +20,6 @@ describe("pokemonager", () => {
       expect(Array.isArray(actual)).to.equal(true);
       expect(actual.length).to.equal(100);
       expect(actual).to.deep.equal(names);
-      console.log("AAAAAAAAAAAAa", actual);
       Array.prototype.map = realMap;
     });
   });
@@ -34,6 +33,8 @@ describe("pokemonager", () => {
     };
 
     return pokemonager.findUnderWeight(100).then((actual) => {
+      console.log("this is actual", actual);
+      console.log("this is the answer", underWeight);
       expect(actual.length).to.equal(4);
       expect(Array.isArray(actual)).to.equal(true);
       expect(actual.map((pokemon) => pokemon.name)).to.deep.equal(underWeight);
